@@ -1,0 +1,108 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background-color: #fff;
+  color: #323330;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+header img {
+  width: auto;
+  height: 90px;
+}
+
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 16px;
+}
+
+.datos {
+  background-color: #ffe53a;
+  padding: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+}
+
+.datos h2 {
+  margin: 0 0 12px 0;
+}
+
+.datos-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.row label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.row input {
+  width: 60%;
+  padding: 10px 12px;
+  background: white;
+}
+
+.row.two {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.btn {
+  padding: 10px 12px;
+  cursor: pointer;
+  font-weight: bold;
+  background: rgb(0, 0, 0);
+  color: white;
+}
+
+.resultado {
+  margin-top: 14px;
+  padding: 12px;
+  color: black;
+  background: rgb(255, 255, 255);
+}
+
+.tabla {
+  width: 100%;
+  min-width: 640px;
+  background: white;
+}
+
+.tabla th,
+.tabla td {
+  padding: 10px 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+}
