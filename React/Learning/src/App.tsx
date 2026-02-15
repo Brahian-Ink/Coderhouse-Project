@@ -1,41 +1,38 @@
 import { useState } from 'react'
+import CounterDisplay from './components/CounterDisplay';
+import CounterButtons from './components/CounterButtons';
+import ResetButton from './components/ResetButton';
 import './App.css'
 
 export default function App(){
   const [count,setCount]= useState<number>(0);
-  
-  //condiciones de colores 
-  let color ="";
+  const Max=count=== 10;
+  const Min=count=== -10; 
 
-  if (count > 0){ color="text-green-500"}
-  else if (count < 0){ color="text-red-500"}
-  else color ="text-gray-500";
+  function handleIncrement(){
+    if(count < 10) setCount(count+1);
+  }
   
-  //condicion de textos
-  let colortext ="";
-  let message="";
-  if (count=== 10){message="Límite máximo";colortext="text-yellow-500"}
-  if (count=== -10){message="Límite máximo";colortext="text-yellow-500"}
+  function handleDecrement(){
+    if(count > -10) setCount(count-1);
+  }
+
+  function handleReset(){
+    setCount(0);
+  }
 
   return(
     <div className='min-h-screen bg-black flex flex-col items-center justify-center gap-4'>
-      <h1 className='text-2xl text-white font-bold'>Contador</h1>
-      <p className={`text-xl ${color}`}>{count}</p>
-      {message && (
-        <p className={`${colortext}`}>{message}</p>
-
-      )}
-      <div className=' flex gap-4'>
-        <button 
-        onClick={()=> { if (count<10){setCount(count+1)}}}
-        className='px-4 py-2 cursor-pointer bg-green-500 text-white rounded'
-        >+</button>
-
-        <button 
-        onClick={()=> { if (count > -10){setCount(count-1)}}}
-        className='px-4 py-2 cursor-pointer bg-red-500 text-white rounded'
-        >-</button>
-      </div>
+      <h1 className='text-white text-2xl font-bold'>Contador</h1>
+    
+      <CounterDisplay count={count}/>
+      <CounterButtons 
+      onIncrement={handleIncrement}
+      onDecrement={handleDecrement}
+      disableIncrement={Max}
+      disableDecrement={Min}
+      />
+      <ResetButton onReset={handleReset}/>
     </div>
   );
 }
