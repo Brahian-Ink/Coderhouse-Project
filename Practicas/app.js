@@ -91,3 +91,27 @@ function FiltrarProducto() {
 }
 
 mostrarProductos();
+
+
+//_____Actividad 7____//
+
+const ctn = document.getElementById("ctn");
+const titulo = document.getElementById("titulo");
+const btn = document.getElementById("btn");
+const btn2 = document.getElementById("btn2");
+const productosDiv = document.getElementById("productos");
+
+btn.addEventListener("click", () => {
+    titulo.innerHTML = '<p>DOM Aplicado!</p>';
+});      
+
+btn2.addEventListener("click", () => {
+    titulo.remove();
+});      
+
+productosDiv.innerHTML = `
+  <h2>Lista de Productos</h2>
+  <ul>
+    ${productos.map(producto => `<li>${producto.nombre} - Precio: $${producto.precio} - Cantidad: ${producto.cantidad} - Subtotal: $${producto.subtotal}</li>`).join('')}
+  </ul>
+`;
