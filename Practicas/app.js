@@ -1,5 +1,9 @@
 // Array
-const productos = [];
+const productos = JSON.parse(localStorage.getItem("productos")) || []; // Si no hay productos en localStorage, se inicializa como un array vacío
+
+function guardarProductos() { // Guardar productos en localStorage
+    localStorage.setItem("productos", JSON.stringify(productos));
+}
 
 // Clase Producto
 class Producto {
@@ -30,10 +34,60 @@ function agregarProducto() {
     const producto = crearProducto();
     producto.calcularSubtotal();
     productos.push(producto);
-
+    guardarProductos(); // Guardar el producto en localStorage después de agregarlo al array
     console.log("Producto agregado:", producto);
 }
 
-// Ejecutar
-agregarProducto();
-console.log(productos);
+function mostrarProductos() {
+    console.log("Productos en el carrito:");
+    productos.forEach(producto => {
+        console.table(producto);
+    });
+}  
+
+//____Acitividad 6____//
+
+function aplicarIVA() {
+    const productosConIVA = productos.map(producto => {
+        return {
+            id: producto.id,
+            nombre: producto.nombre,
+            precio: producto.precio * 1.21, // Aplicar IVA del 21%
+            cantidad: producto.cantidad,
+            subtotal: producto.subtotal * (producto.precio * 1.21) 
+             };
+    });
+    console.log("Productos con IVA aplicado:");
+    productosConIVA.forEach(producto => { // Mostrar cada producto con IVA aplicado en formato de tabla
+        console.table(producto);
+    });
+}
+
+function bucarProducto(nombre){
+    const productoEncontrado = productos.find(producto => producto.nombre.toLowerCase() === nombre.toLowerCase());
+    if(productoEncontrado){
+        console.log("Producto encontrado:", productoEncontrado);
+    } else {
+        console.log("Producto no encontrado");
+    }
+}
+
+function FiltrarProducto() {
+  const texto = prompt("Ingrese el nombre, precio o cantidad del producto a filtrar:");  
+
+    if (!texto) { // Verificar si el usuario ingresó un texto válido
+        console.log("No se ingresó ningún texto para filtrar.");
+        return;
+    }  
+    const textoLimpio = texto.trim().toLowerCase(); // Eliminar espacios y convertir a minúsculas para una comparación más flexible
+    
+    const resultado = productos.filter(function(producto) {
+    return producto.nombre.toLowerCase().includes(textoLimpio) ||
+           producto.precio.toString().includes(textoLimpio) ||
+           producto.cantidad.toString().includes(textoLimpio);
+  });
+
+  console.log("Productos filtrados:", resultado);
+}
+
+mostrarProductos();
