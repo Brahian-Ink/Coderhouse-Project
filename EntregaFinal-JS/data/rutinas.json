@@ -1,0 +1,22 @@
+[
+{
+"nombre":"Rutina Fuerza Ligera",
+"ejercicios":"Sentadillas, flexiones suaves",
+"categoria":"bajo"
+},
+{
+"nombre":"Rutina Balanceada",
+"ejercicios":"Cardio + pesas moderadas",
+"categoria":"normal"
+},
+{
+"nombre":"Rutina Quema Grasa",
+"ejercicios":"HIIT + running",
+"categoria":"sobrepeso"
+},
+{
+"nombre":"Cardio Intensivo",
+"ejercicios":"Caminata rápida + bici",
+"categoria":"obesidad"
+}
+]

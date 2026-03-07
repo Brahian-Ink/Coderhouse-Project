@@ -1,0 +1,22 @@
+[
+{
+"nombre":"Dieta Hipercalórica",
+"descripcion":"Avena, frutos secos, pollo",
+"categoria":"bajo"
+},
+{
+"nombre":"Dieta Balanceada",
+"descripcion":"Proteínas, verduras y carbohidratos",
+"categoria":"normal"
+},
+{
+"nombre":"Dieta Baja en Grasas",
+"descripcion":"Pollo, verduras, arroz integral",
+"categoria":"sobrepeso"
+},
+{
+"nombre":"Dieta Hipocalórica",
+"descripcion":"Verduras, proteínas magras",
+"categoria":"obesidad"
+}
+]
